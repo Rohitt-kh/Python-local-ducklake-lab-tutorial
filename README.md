@@ -592,6 +592,8 @@ The local DuckLake now exists on disk. Part 2 will reuse exactly the same `catal
 
 ---
 
+# Part 2 — FastAPI
+
 In Part 1, the Python script talked directly to DuckLake and printed 
 the result in the terminal.
 
@@ -611,8 +613,6 @@ application, browser, frontend, or service can use it.
 In this local lab, we only expose read endpoints. CRUD was already 
 covered in Part 1. Part 2 focuses on reading DuckLake data through 
 an application API.
-
-# Part 2 — FastAPI
 
 The API reads from the **same** `catalog.db` and `lake-data/` that the script created in Part 1.
 

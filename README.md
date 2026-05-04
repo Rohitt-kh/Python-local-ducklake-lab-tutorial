@@ -1,4 +1,4 @@
-# Python Tutorial — Local DuckLake (without cloud)
+# Python Tutorial — Local DuckLake
 
 ## How Python connects to a local DuckLake
 

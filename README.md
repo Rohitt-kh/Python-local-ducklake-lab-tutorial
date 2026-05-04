@@ -805,6 +805,7 @@ pip install -r requirements.txt
 4. **Do not share connections between requests** — Create a new connection per request with `with get_conn() as con:`. Never save the connection object as a global variable.
 
 5. **Parquet files are not deleted automatically** — Each snapshot leaves files in `lake-data/`. Run `CALL ducklake_cleanup('lake')` to remove unused files.
+---
 
 ## Cleanup
 
@@ -816,6 +817,7 @@ To reset the local DuckLake, stop the API and delete the generated files:
 Then run `setup.py` again.
 
 The script will create a new local DuckLake from scratch.
+---
 
 ## Next steps
 

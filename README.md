@@ -817,6 +817,7 @@ To reset the local DuckLake, stop the API and delete the generated files:
 Then run `setup.py` again.
 
 The script will create a new local DuckLake from scratch.
+
 ---
 
 ## Next steps

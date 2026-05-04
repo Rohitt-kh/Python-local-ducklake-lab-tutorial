@@ -731,12 +731,7 @@ Or open `http://localhost:8000/docs` for interactive API documentation.
 ---
 ## What Part 2 adds
 
-Part 1 proved that Python can create and modify a local DuckLake.
-
-Part 2 proves that an application can expose DuckLake data through an API.
-
-The important change is:
-
+```text
 Part 1:
 Python code directly queries DuckLake and prints results in the terminal.
 
@@ -745,6 +740,7 @@ A browser or another application sends a request to FastAPI.
 FastAPI calls database.py.
 database.py queries DuckLake.
 The result is returned as JSON.
+```
 
 This is close to the next step of the project: connecting an application 
 to a shared DuckLake deployment in KTH Cloud and reading datasets from it.

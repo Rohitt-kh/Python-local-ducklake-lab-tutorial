@@ -1,5 +1,23 @@
 # Python Tutorial — Local DuckLake
+This lab teaches you how to create a local DuckLake from a Python script and then read that same DuckLake through a small FastAPI application.
+The lab has two parts:
 
+Part 1: Python script → DuckLake → CRUD operations
+Part 2: Browser/API request → FastAPI → DuckLake → JSON response
+
+The focus of the lab is DuckLake. FastAPI is only used in Part 2 to show 
+how an application can expose DuckLake data through an API.
+
+By the end of the lab, you will have built an application that can:
+
+1. create a local DuckLake,
+2. create a table,
+3. insert rows,
+4. read rows,
+5. update rows,
+6. delete rows,
+7. expose the DuckLake data through HTTP endpoints.
+   
 ## How Python connects to a local DuckLake
 
 ```
@@ -574,6 +592,26 @@ The local DuckLake now exists on disk. Part 2 will reuse exactly the same `catal
 
 ---
 
+In Part 1, the Python script talked directly to DuckLake and printed 
+the result in the terminal.
+
+In Part 2, you will keep the same local DuckLake, but change the 
+application structure:
+
+Before:
+setup.py → DuckLake → terminal output
+
+After:
+Browser/API request → FastAPI → database.py → DuckLake → JSON response
+
+This is useful because real applications often do not just print database 
+results in the terminal. They expose data through an API so that another 
+application, browser, frontend, or service can use it.
+
+In this local lab, we only expose read endpoints. CRUD was already 
+covered in Part 1. Part 2 focuses on reading DuckLake data through 
+an application API.
+
 # Part 2 — FastAPI
 
 The API reads from the **same** `catalog.db` and `lake-data/` that the script created in Part 1.
@@ -691,6 +729,27 @@ Expected output from `/datasets/students` (if you completed Part 1):
 Or open `http://localhost:8000/docs` for interactive API documentation.
 
 ---
+## What Part 2 adds
+
+Part 1 proved that Python can create and modify a local DuckLake.
+
+Part 2 proves that an application can expose DuckLake data through an API.
+
+The important change is:
+
+Part 1:
+Python code directly queries DuckLake and prints results in the terminal.
+
+Part 2:
+A browser or another application sends a request to FastAPI.
+FastAPI calls database.py.
+database.py queries DuckLake.
+The result is returned as JSON.
+
+This is close to the next step of the project: connecting an application 
+to a shared DuckLake deployment in KTH Cloud and reading datasets from it.
+
+
 
 ## FastAPI — key concepts
 
@@ -746,3 +805,29 @@ pip install -r requirements.txt
 4. **Do not share connections between requests** — Create a new connection per request with `with get_conn() as con:`. Never save the connection object as a global variable.
 
 5. **Parquet files are not deleted automatically** — Each snapshot leaves files in `lake-data/`. Run `CALL ducklake_cleanup('lake')` to remove unused files.
+
+## Cleanup
+
+To reset the local DuckLake, stop the API and delete the generated files:
+
+    catalog.db
+    lake-data/
+
+Then run `setup.py` again.
+
+The script will create a new local DuckLake from scratch.
+
+## Next steps
+
+This local lab has shown how to:
+
+1. create a local DuckLake,
+2. perform CRUD operations from Python,
+3. read DuckLake data through a FastAPI application.
+
+A later tutorial builds on this by showing how to connect an application 
+to a shared DuckLake deployment in KTH Cloud and read datasets from 
+that deployment.
+
+Another later part of the project adds a frontend where authenticated 
+users can view, add, or delete datasets.

@@ -600,11 +600,11 @@ the result in the terminal.
 In Part 2, you will keep the same local DuckLake, but change the 
 application structure:
 
-Before:
-setup.py → DuckLake → terminal output
+```text
+Before: setup.py → DuckLake → terminal output
 
-After:
-Browser/API request → FastAPI → database.py → DuckLake → JSON response
+After: Browser/API request → FastAPI → database.py → DuckLake → JSON response
+```
 
 This is useful because real applications often do not just print database 
 results in the terminal. They expose data through an API so that another 

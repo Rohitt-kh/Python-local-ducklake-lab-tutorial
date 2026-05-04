@@ -580,7 +580,7 @@ The API reads from the **same** `catalog.db` and `lake-data/` that the script cr
 
 ### student.py — Student dataclass
 
-Create the file `student.py` in the same folder as `main.py`:
+Create the file `student.py`:
 
 ```python
 from dataclasses import dataclass

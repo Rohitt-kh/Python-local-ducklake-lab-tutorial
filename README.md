@@ -2,7 +2,7 @@
 This lab teaches you how to create a local DuckLake from a Python script and then read that same DuckLake through a small FastAPI application.
 The lab has two parts:
 
-Part 1: Python script → DuckLake → CRUD operations
+Part 1: Python script → DuckLake → CRUD operations  
 Part 2: Browser/API request → FastAPI → DuckLake → JSON response
 
 The focus of the lab is DuckLake. FastAPI is only used in Part 2 to show 
@@ -802,6 +802,7 @@ pip install -r requirements.txt
 4. **Do not share connections between requests** — Create a new connection per request with `with get_conn() as con:`. Never save the connection object as a global variable.
 
 5. **Parquet files are not deleted automatically** — Each snapshot leaves files in `lake-data/`. Run `CALL ducklake_cleanup('lake')` to remove unused files.
+
 ---
 
 ## Cleanup
